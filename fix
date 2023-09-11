@@ -1,0 +1,32 @@
+import java.util.Scanner;
+
+public class TestActivity3{
+   public static void main(String[] args){
+      Scanner Input = new Scanner(System.in);        
+      TestActivity3[] stu = new TestActivity3[stuNum];
+         System.out.print("Enter Grade: ");
+         double grade = Input.nextDouble();
+               
+      
+      bubbleSort(stu);
+      System.out.println("Ascending order");
+       for(TestActivity3 s: stu){
+         System.out.println("Grade: " + s.getGrade());   
+      }
+} // End of main
+     
+      public static void bubbleSort(TestActivity3t[] array) {
+         int a, b;
+         TestActivity3 temp;
+         
+         int highest= array.length -1;
+         for(a=0; a<highest; ++a)
+            for(b=0; b<highest; ++b)
+               if(array[b].getGrade()< array[b + 1].getGrade()) {
+                  temp = array[b];
+                  array[b] = array[b + 1];
+                  array[b + 1] = temp;
+               } // End of For Loop
+      } // End of static void
+} // End of Class
+   
