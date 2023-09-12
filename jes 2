@@ -2,26 +2,26 @@ import java.util.Scanner;
 
 public class TestStudent{
     public static void main(String[] args){
-        Scanner Input = new Scanner(System.in);
+        Scanner sc = new Scanner(System.in);
         int TotalStudents;
 
         System.out.print("Enter number of Students:");
-        TotalStudents = Input.nextInt();
+        TotalStudents = sc.nextInt();
 
         Student[] students = new Student[TotalStudents];
         for(int i=0; i<students.length; i++) {
             System.out.print("Enter ID # " + (i+1) + ": ");
-            int id = Input.nextInt();
-            Input.nextLine();
+            int id = sc.nextInt();
+            sc.nextLine();
 
             System.out.print("Enter Last Name: ");
-            String last = Input.nextLine();
+            String last = sc.nextLine();
             System.out.print("Enter first Name: " );
-            String first = Input.nextLine();
+            String first = sc.nextLine();
             System.out.print("Enter Course: " );
-            String course = Input.nextLine();
+            String course = sc.nextLine();
             System.out.print("Enter Grade: ");
-            double grade = Input.nextDouble();
+            double grade = sc.nextDouble();
             System.out.print("\n");
 
             students[i] = new Student(id, last, first, course, grade);
