@@ -1,32 +1,83 @@
 import java.util.Scanner;
 
-public class TestActivity3{
-   public static void main(String[] args){
-      Scanner Input = new Scanner(System.in);        
-      TestActivity3[] stu = new TestActivity3[stuNum];
-         System.out.print("Enter Grade: ");
-         double grade = Input.nextDouble();
-               
-      
-      bubbleSort(stu);
-      System.out.println("Ascending order");
-       for(TestActivity3 s: stu){
-         System.out.println("Grade: " + s.getGrade());   
-      }
-} // End of main
-     
-      public static void bubbleSort(TestActivity3t[] array) {
-         int a, b;
-         TestActivity3 temp;
-         
-         int highest= array.length -1;
-         for(a=0; a<highest; ++a)
-            for(b=0; b<highest; ++b)
-               if(array[b].getGrade()< array[b + 1].getGrade()) {
-                  temp = array[b];
-                  array[b] = array[b + 1];
-                  array[b + 1] = temp;
-               } // End of For Loop
-      } // End of static void
-} // End of Class
-   
+public class Grades {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+
+        System.out.print("Enter how many Grades: ");
+        int totalGrade = input.nextInt();
+
+        double[] grades = new double[totalGrade];
+        System.out.print("Enter " + totalGrade + " Final grades: ");
+        for (int i = 0; i < totalGrade; i++) {
+            grades[i] = input.nextDouble();
+        }
+
+        while (true) {
+            System.out.println("Please choose");
+            System.out.println("1. Insertion Sort (Ascending)");
+            System.out.println("2. Insertion Sort (Descending)");
+            System.out.println("0. Exit");
+
+            int choice = input.nextInt();
+            switch (choice) {
+                case 1:
+                    ascending(grades);
+                    System.out.println("Grades in ascending order:");
+                    break;
+                case 2:
+                    descending(grades);
+                    System.out.println("Grades in descending order:");
+                    break;
+                case 0:
+                    System.out.println("Stopping program ...");
+                    input.close();
+                    return;
+
+                default:
+                    System.out.println("Invalid choice choose again.");
+            }
+
+            // Print the sorted grades
+            for (int i = 0; i < totalGrade; i++) {
+                System.out.print(grades[i] + " ");
+            }
+            System.out.println(); // new line
+        }
+    }// End of main
+
+    // Asecnding insertion sort
+    public static void ascending(double[] grades) {
+        int num = grades.length;
+        int i = 1;
+
+        while (i < num) {
+            double temp = grades[i];
+            int j = i - 1;
+            while (j >= 0 && grades[j] > temp) {
+                grades[j + 1] = grades[j];
+                j--;
+            }
+            grades[j + 1] = temp;
+            i++;
+        }
+    }
+
+    // Descending insertion sort
+    public static void descending(double[] grades) {
+        int num = grades.length;
+        int i = 1;
+
+        while (i < num) {
+            double temp = grades[i];
+            int j = i - 1;
+            //change to less than
+            while (j >= 0 && grades[j] < temp) {
+                grades[j + 1] = grades[j];
+                j--;
+            }
+            grades[j + 1] = temp;
+            i++;
+        }
+    }
+}// end of class
