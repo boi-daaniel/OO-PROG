@@ -22,27 +22,20 @@ public class Grades {
             int choice = input.nextInt();
             switch (choice) {
                 case 1:
-                    ascending(grades);
                     System.out.println("Grades in ascending order:");
+                    ascending(grades);
                     break;
                 case 2:
-                    descending(grades);
                     System.out.println("Grades in descending order:");
+                    descending(grades);
                     break;
                 case 0:
                     System.out.println("Stopping program ...");
                     input.close();
                     return;
-
                 default:
                     System.out.println("Invalid choice choose again.");
             }
-
-            // Print the sorted grades
-            for (int i = 0; i < totalGrade; i++) {
-                System.out.print(grades[i] + " ");
-            }
-            System.out.println(); // new line
         }
     }// End of main
 
@@ -61,6 +54,12 @@ public class Grades {
             grades[j + 1] = temp;
             i++;
         }
+
+        // Print the sorted grades here
+        for (int k = 0; k < num; k++) {
+            System.out.print(grades[k] + " ");
+        }
+        System.out.println(); // new line
     }
 
     // Descending insertion sort
@@ -71,7 +70,6 @@ public class Grades {
         while (i < num) {
             double temp = grades[i];
             int j = i - 1;
-            //change to less than
             while (j >= 0 && grades[j] < temp) {
                 grades[j + 1] = grades[j];
                 j--;
@@ -79,5 +77,11 @@ public class Grades {
             grades[j + 1] = temp;
             i++;
         }
+
+        // Print the sorted grades here
+        for (int k = 0; k < num; k++) {
+            System.out.print(grades[k] + " ");
+        }
+        System.out.println(); // new line
     }
 }// end of class
