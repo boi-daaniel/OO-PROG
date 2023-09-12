@@ -14,7 +14,7 @@ public class Grades {
         }
 
         while (true) {
-            System.out.println("Please choose");
+            System.out.println("\nPlease choose");
             System.out.println("1. Insertion Sort (Ascending)");
             System.out.println("2. Insertion Sort (Descending)");
             System.out.println("0. Exit");
@@ -80,4 +80,4 @@ public class Grades {
             i++;
         }
     }
-}// end of class Grade
+}// end of class
