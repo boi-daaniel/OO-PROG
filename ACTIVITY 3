@@ -55,7 +55,7 @@ public class Grades {
             i++;
         }
 
-        // Print the sorted grades here
+        // Display
         for (int k = 0; k < num; k++) {
             System.out.print(grades[k] + " ");
         }
@@ -78,7 +78,7 @@ public class Grades {
             i++;
         }
 
-        // Print the sorted grades here
+        // Display
         for (int k = 0; k < num; k++) {
             System.out.print(grades[k] + " ");
         }
