@@ -37,6 +37,7 @@ public class Grades {
                     System.out.println("Invalid choice choose again.");
             }
         }
+        
     }// End of main
 
     // Asecnding insertion sort
@@ -54,12 +55,11 @@ public class Grades {
             grades[j + 1] = temp;
             i++;
         }
-
         // Display
-        for (int k = 0; k < num; k++) {
-            System.out.print(grades[k] + " ");
+        for (double grade : grades) {
+            System.out.print(grade + " ");
         }
-        System.out.println(); // new line
+        System.out.println(); // seperator
     }
 
     // Descending insertion sort
@@ -77,11 +77,11 @@ public class Grades {
             grades[j + 1] = temp;
             i++;
         }
-
         // Display
-        for (int k = 0; k < num; k++) {
-            System.out.print(grades[k] + " ");
+        for (double grade : grades) {
+            System.out.print(grade + " ");
         }
-        System.out.println(); // new line
+        System.out.println(); // seperator
     }
+
 }// end of class
