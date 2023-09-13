@@ -22,7 +22,7 @@ public class TestStudent{
             String course = sc.nextLine();
             System.out.print("Enter Grade: ");
             double grade = sc.nextDouble();
-            System.out.print("\n");
+            System.out.println();
 
             students[i] = new Student(id, last, first, course, grade);
         }// End of for loop
