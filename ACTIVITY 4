@@ -1,0 +1,39 @@
+import java.util.Scanner;
+
+public class Temperature{
+   public static void main(String[] args){
+      Scanner input = new Scanner(System.in);
+      String[] monthNames = {"January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"};
+      int months = 12;
+      double[][] tempData = new double [months][2];
+      
+      for(int i =0; i<months; i++){
+         System.out.print("Enter Highest Temperature for month " + (monthNames[i]) + ": ");
+         tempData[i][0] = input.nextDouble();
+         System.out.print("Enter Lowest Temperature for month " + (monthNames[i]) + ": ");
+         tempData[i][1] = input.nextDouble();
+         System.out.println();//Seperator
+      }
+      
+   }//end of main
+   
+   /*public static void getData(){
+   
+   }
+   
+   public static void averageHigh(){
+   
+   }
+   
+   public static void averageLow(){
+   
+   }
+   
+   public static void indexHighTemp(){
+   
+   }
+   
+   public static void indexLowTemp(){
+   
+   }*/
+}//End of Class
