@@ -1,0 +1,25 @@
+public class BubbleSort {
+    public static void main(String[] args) {
+        int[] arr = {5, 2, 9, 3, 1}; // An array of integers to be sorted
+
+        for (int i = 0; i < arr.length - 1; i++) {
+            // The outer loop iterates from the first element to the second-to-last element
+            // It controls the number of passes through the array
+            for (int j = 0; j < arr.length - 1 - i; j++) {
+                // The inner loop iterates from the first element to the element just before the current outer loop index
+                // It compares adjacent elements and swaps them if they are in the wrong order
+
+                if (arr[j] > arr[j + 1]) {
+                    // If the current element is greater than the next element, they are in the wrong order
+                    // So, we swap arr[j] and arr[j + 1] to correct the order
+
+                    int temp = arr[j];     // Store the value of arr[j] in a temporary variable
+                    arr[j] = arr[j + 1];   // Replace arr[j] with the value of arr[j + 1]
+                    arr[j + 1] = temp;     // Replace arr[j + 1] with the original value of arr[j]
+                }
+            }
+        }
+
+        // The sorted array is now in 'arr'
+    }
+}
