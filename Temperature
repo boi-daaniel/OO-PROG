@@ -60,12 +60,12 @@ public class Temperature {
 
    // indexHighTemp method
     public static void indexHighTemp(double[][] tempData) {
-        double maxHighTemp = tempData[0][0];
+        double HighTemp = tempData[0][0];
         int index = 0;
 
         for (int i = 1; i < tempData.length; i++) {
-            if (tempData[i][0] > maxHighTemp) {
-                maxHighTemp = tempData[i][0];
+            if (tempData[i][0] > HighTemp) {
+                HighTemp = tempData[i][0];
                 index = i;
             }
         }
@@ -74,12 +74,12 @@ public class Temperature {
 
    // indexLowTemp method
     public static void indexLowTemp(double[][] tempData) {
-        double minLowTemp = tempData[0][1];
+        double LowTemp = tempData[0][1];
         int index = 0;
 
         for (int i = 1; i < tempData.length; i++) {
-            if (tempData[i][1] < minLowTemp) {
-                minLowTemp = tempData[i][1];
+            if (tempData[i][1] < LowTemp) {
+                LowTemp = tempData[i][1];
                 index = i;
             }
         }
