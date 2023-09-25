@@ -1,0 +1,20 @@
+public class Animal {
+   private int lifeExpectancy;
+   private int weight;
+   private char gender;
+   private String name;
+   private String type;
+   
+   
+   public Animal(int lifeExpectancy, int weight, char gender, String name, String type) {
+      this.lifeExpectancy = lifeExpectancy;
+      this.weight = weight;
+      this.gender = gender;
+      this.name = name;
+      this.type = type;      
+   }
+   
+   public void printValues() {
+      System.out.println("Animal life expectancy is " + lifeExpectancy + " years. " + "Animal weight and gender " + weight + gender + ". Animal name and type is " + name + type);
+   }
+}// class
