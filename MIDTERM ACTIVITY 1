@@ -15,6 +15,6 @@ public class Animal {
    }
    
    public void printValues() {
-      System.out.println("Animal life expectancy is " + lifeExpectancy + " years. " + "Animal weight and gender " + weight + gender + ". Animal name and type is " + name + type);
+      System.out.println("Animal life expectancy is " + lifeExpectancy + " years. " + "Animal weight and gender " + weight + "kgs, " + gender +  ". Animal name and type is " + name+", " +type);
    }
 }// class
