@@ -1,0 +1,14 @@
+public class pet extends Animal {
+  private String home;
+  private String bites;
+  
+  public pet(int le, int w, char gender, String name, String type){
+   super(le, w, gender, name, type);
+   this.home=home;
+   this.bites=bites;
+  }
+  
+  public String toString() {
+      return super.toString() + "Life expectancy: " + le + "weight " + weight + "gender " + gender + "name: " + name + "type: " + type; 
+  }
+}
