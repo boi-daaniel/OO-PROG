@@ -1,13 +1,14 @@
 import java.util.Scanner;
 
-public class Temperature {
+public class Temperature {    
     static String[] monthNames = {"January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"};
+    static int months = 12;
     
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
-        int months = 12;
         double[][] tempData = new double[months][2];
-
+        int months = 12;
+          
         for (int i = 0; i < months; i++) {
             System.out.print("Enter Highest Temperature for " + (monthNames[i]) + ": ");
             tempData[i][0] = input.nextDouble();
@@ -15,25 +16,25 @@ public class Temperature {
             tempData[i][1] = input.nextDouble();
             System.out.println(); // Separator
         }
-
-        // Display
+        
+        // DISPLAY
         getData(tempData);
-        System.out.println();
         averageHigh(tempData);
         averageLow(tempData);
-        System.out.println();
         indexHighTemp(tempData);
         indexLowTemp(tempData);
+        
     }// main
 
     // getData method
     public static void getData(double[][] tempData) {
-        System.out.println("All Temperature Data:");
-        int i = 0;
-        for (double[] monthTemperatures : tempData) {
-            System.out.println(monthNames[i] + ": High - " + monthTemperatures[0] + " Low - " + monthTemperatures[1]);
-            i++;
-        }
+      System.out.println("\t All Month's Temperature Data");
+      int i = 0;
+      for(double[] monthTemp : tempData) {
+         System.out.println(monthNames[i] + ": (Highest: " + monthTemp[0] + ") - (Lowest: " + monthTemp[1] + ")");
+         i++;
+      }
+      System.out.println();// To Seperate  
     }
 
     // averageHigh method
@@ -43,7 +44,7 @@ public class Temperature {
             sum += tempData[i][0];
         }
         double average = sum / tempData.length;
-        System.out.println("Average High Temperature: " + average);
+        System.out.printf("Average High Temperature: %.2f\n", average);
     }
 
    // averageLow method
@@ -53,36 +54,35 @@ public class Temperature {
             sum += tempData[i][1];
         }
         double average = sum / tempData.length;
-        System.out.println("Average Low Temperature: " + average);
+        System.out.printf("Average Low Temperature: %.2f\n", average);
+
     }
 
    // indexHighTemp method
     public static void indexHighTemp(double[][] tempData) {
-        double maxHighTemp = tempData[0][0];
+        double HighTemp = tempData[0][0];
         int index = 0;
 
         for (int i = 1; i < tempData.length; i++) {
-            if (tempData[i][0] > maxHighTemp) {
-                maxHighTemp = tempData[i][0];
+            if (tempData[i][0] > HighTemp) {
+                HighTemp = tempData[i][0];
                 index = i;
             }
         }
-
         System.out.println("Month with the Highest Temperature: " + monthNames[index]);
     }
 
    // indexLowTemp method
     public static void indexLowTemp(double[][] tempData) {
-        double minLowTemp = tempData[0][1];
+        double LowTemp = tempData[0][1];
         int index = 0;
 
         for (int i = 1; i < tempData.length; i++) {
-            if (tempData[i][1] < minLowTemp) {
-                minLowTemp = tempData[i][1];
+            if (tempData[i][1] < LowTemp) {
+                LowTemp = tempData[i][1];
                 index = i;
             }
         }
-
         System.out.println("Month with the Lowest Temperature: " + monthNames[index]);
     }
     
