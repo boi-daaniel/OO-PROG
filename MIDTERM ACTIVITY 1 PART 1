@@ -1,7 +1,0 @@
-public class animalTest {
-   public static void main(String[] args) {
-      Animal animal1 = new Animal(65, 150, 'M', "Elephant", "Mammal");
-      
-      animal1.printValues();
-   }
-}
