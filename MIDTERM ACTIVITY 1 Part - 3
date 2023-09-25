@@ -37,3 +37,4 @@ public class Pet extends Animal {
          System.out.println("Your " + type + " lives " + home + " and does " + bites);
     }
 }// CLASS
+
