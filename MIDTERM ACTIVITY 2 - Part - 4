@@ -1,0 +1,28 @@
+class Cube extends Square implements ThreeD {
+    
+    // Constructors
+    public Cube() {
+        super();
+    }
+
+    public Cube(double side) {
+        super(side);
+    }
+    
+    // Getters and Setters
+    public void setSide(double side) {
+        super.setSide(side);
+    }
+
+    public double getSide() {
+        return super.getSide();
+    }
+   
+    public double getArea() {
+        return 6 * super.getArea();                                  
+    }
+    
+    public double getVolume() {
+        return super.getArea() * getSide();
+    }
+}
