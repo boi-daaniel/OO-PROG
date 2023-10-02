@@ -28,7 +28,7 @@ class Sphere extends Circle implements ThreeD {
     }
 
     public String toString() {
-        return "The Sphere's with radius of" + getRadius();
+        return "The Sphere's radius is " + getRadius();
     }
 
     
