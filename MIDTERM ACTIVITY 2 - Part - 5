@@ -1,0 +1,33 @@
+class Circle extends Shape {
+    private double radius;
+
+    //Constructors
+    public Circle() {
+        this.radius = 0;
+    }
+
+    public Circle(double radius) {
+        this.radius = radius;
+    }
+    
+    // Getters and Setters
+    public void setRadius(double radius) {
+        this.radius = radius;
+    }
+
+    public double getRadius() {
+        return radius;
+    }
+
+    public double getArea() {
+        return radius * radius;
+    }
+
+    public String toString() {
+        return "The Circle's radius is" + radius;
+    }
+
+    public boolean equals(Circle c) {
+        return this.radius == c.radius;
+    }
+}
