@@ -24,7 +24,7 @@ class Circle extends Shape {
     }
 
     public String toString() {
-        return "The Circle's radius is" + radius;
+        return "The Circle's radius is " + radius;
     }
 
     public boolean equals(Circle c) {
