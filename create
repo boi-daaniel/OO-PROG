@@ -1,0 +1,26 @@
+CREATE THE GIVEN CLASSES BELOW.
+CREATE A CLASS THAT TESTS ALL THE CLASSES BELOW.
+
+Shape <abstract>
++getArea():double
++toString():String
+-------------------------------------
+ThreeD <interface>
++getVolume():double
+Square extends Shape
+-side:double
++Square()
++Square(double side)
++setSide(double side):void
++getSide():double
++getArea():double
++toString():String
++equals(Square s):boolean
+Cube extends Square implements
+ThreeD
++Cube()
++Cube(double side)
++setSide(double side):void
++getSide():double
++getArea():double
++getVolume():double
