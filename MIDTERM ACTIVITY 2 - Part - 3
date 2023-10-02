@@ -24,7 +24,7 @@ class Square extends Shape {
    }
    
    public String toString() {
-      return "The Square's side length is " + side;
+      return "With a side length of " + side;
    }
    
    public boolean equals(Square s) {
