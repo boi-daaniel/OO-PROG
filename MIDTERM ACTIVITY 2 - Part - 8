@@ -1,32 +1,32 @@
 public class shapesTest {
    public static void main(String[] args) {
-        // Square class
+        // Square object
         Square square = new Square(5);
         System.out.println("Square Area: " + square.getArea());
         System.out.println(square.toString());
         System.out.println();
 
-        // Cube class
+        // Cube object
         Cube cube = new Cube(3);
         System.out.println("Cube Area: " + cube.getArea());
         System.out.println("Cube Volume: " + cube.getVolume());
         System.out.println(cube.toString());
         System.out.println();
 
-        // Circle class
+        // Circle object
         Circle circle = new Circle(4);
         System.out.println("Circle Area: " + circle.getArea());
         System.out.println(circle.toString());
         System.out.println();
 
-        // Sphere class
+        // Sphere object
         Sphere sphere = new Sphere(2);
         System.out.println("Sphere Area: " + sphere.getArea());
         System.out.println("Sphere Volume: " + sphere.getVolume());
         System.out.println(sphere.toString());
         System.out.println();
 
-        // Cylinder class
+        // Cylinder object
         Cylinder cylinder = new Cylinder(3, 7);
         System.out.println("Cylinder Area: " + cylinder.getArea());
         System.out.println("Cylinder Volume: " + cylinder.getVolume());
