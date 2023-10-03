@@ -1,7 +1,10 @@
+// Superclass Square iyang mga subclass kay silang Cube ra
+// Square class inheriting Abstract Shape class
 class Square extends Shape {
+   // Private instance variable named side
    private double side;
    
-   // Constructor
+   // Default constructor and parameterized constructor
    public Square () {
       this.side= 0;
    }
@@ -19,6 +22,7 @@ class Square extends Shape {
       return side;
    }
    
+   // Override Methods that calculates the area of Square by multiplying the sides and displays the side length
    public double getArea() {
       return side * side;
    }
@@ -27,6 +31,7 @@ class Square extends Shape {
       return "With a side length of " + side;
    }
    
+   // Compares if the current square's side length is equal to object square's side length
    public boolean equals(Square s) {
       return this.side == s.side;
    } 
