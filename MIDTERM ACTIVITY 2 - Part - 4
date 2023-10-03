@@ -1,28 +1,30 @@
+// Cube class inheriting Square Class and implements ThreeD interface
 class Cube extends Square implements ThreeD {
-    
-    // Constructors
-    public Cube() {
-        super();
-    }
+       
+   // Default constructor and parameterized constructor
+   public Cube() {
+      super();
+   }
 
-    public Cube(double side) {
-        super(side);
-    }
+   public Cube(double side) {
+      super(side);
+   }
     
-    // Getters and Setters
-    public void setSide(double side) {
-        super.setSide(side);
-    }
+   // Getters and Setters
+   public void setSide(double side) {
+      super.setSide(side);
+   }
 
-    public double getSide() {
-        return super.getSide();
-    }
+   public double getSide() {
+      return super.getSide();
+   }
    
-    public double getArea() {
-        return 6 * super.getArea();                                  
-    }
+   // Override methods that calculates the area of Cube by 6 times the area of one side (6 sides)  
+   public double getArea() {
+      return 6 * super.getArea();                                  
+   }
     
-    public double getVolume() {
-        return super.getArea() * getSide();
-    }
+   public double getVolume() {
+      return super.getArea() * getSide();
+   }
 }
