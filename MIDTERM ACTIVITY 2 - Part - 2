@@ -1,3 +1,4 @@
+// Interface with abstract method no body getVolume mao ni gamiton nilang cube, sphere og cylinder puhon
 public interface ThreeD {
     double getVolume();
 }
