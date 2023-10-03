@@ -1,4 +1,6 @@
+// Superclass Shape subclass niya kay silang square og circle
 abstract class Shape {
+   //Abstract methods with no body
    public abstract double getArea(); 
    public abstract String toString();
 }
