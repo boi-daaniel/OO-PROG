@@ -1,33 +1,38 @@
+// Superclass Circle iyang mga batos kay silang sphere og cylinder
+// Circle class inheriting Abstract class Shape
 class Circle extends Shape {
-    private double radius;
+   // Private instance variable named radius 
+   private double radius;
 
-    //Constructors
-    public Circle() {
-        this.radius = 0;
-    }
+   // Default constructor and parameterized constructor
+   public Circle() {
+      this.radius = 0;
+   }
 
-    public Circle(double radius) {
-        this.radius = radius;
-    }
+   public Circle(double radius) {
+      this.radius = radius;
+   }
     
-    // Getters and Setters
-    public void setRadius(double radius) {
-        this.radius = radius;
-    }
+   // Getters and Setters
+   public void setRadius(double radius) {
+      this.radius = radius;
+   }
 
-    public double getRadius() {
-        return radius;
-    }
+   public double getRadius() {
+      return radius;
+   }
 
-    public double getArea() {
-        return radius * radius;
-    }
+   // Override methods that calculates the area by multiplying the radius and displays the circles radius
+   public double getArea() {
+      return radius * radius;
+   }
 
-    public String toString() {
-        return "The Circle's radius is " + radius;
-    }
-
-    public boolean equals(Circle c) {
-        return this.radius == c.radius;
-    }
+   public String toString() {
+      return "The Circle's radius is " + radius;
+   }
+   
+   // Compares if the current circle's radius is equal to objects circle's radius
+   public boolean equals(Circle c) {
+      return this.radius == c.radius;
+   }
 }
