@@ -41,3 +41,4 @@ class Sphere extends Circle implements ThreeD {
       return Double.compare(s.getRadius(), getRadius()) == 0;
    }
 }
+
