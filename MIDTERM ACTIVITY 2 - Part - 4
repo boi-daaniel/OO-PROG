@@ -28,3 +28,4 @@ class Cube extends Square implements ThreeD {
       return super.getArea() * getSide();
    }
 }
+
