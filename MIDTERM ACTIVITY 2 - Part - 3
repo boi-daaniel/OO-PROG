@@ -1,4 +1,4 @@
-// Superclass Square iyang mga subclass kay silang Cube ra
+// Superclass Square iyang mga subclass kay si Cube
 // Square class inheriting Abstract Shape class
 class Square extends Shape {
    // Private instance variable named side
