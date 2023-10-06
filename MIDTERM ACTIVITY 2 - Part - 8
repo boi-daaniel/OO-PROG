@@ -1,37 +1,30 @@
-public class shapesTest {
-   public static void main(String[] args) {
-        // Square object
-        Square square = new Square(5);
-        System.out.println("Square Area: " + square.getArea());
-        System.out.println(square.toString());
-        System.out.println();
-
-        // Cube object
-        Cube cube = new Cube(3);
+public class testShape {
+    public static void main(String[] args) {
+        // SQUARE
+        Square square = new Square(4);
+        System.out.println("Square Area: " + square.getArea()); 
+        System.out.println(square.toString()+"\n");
+        
+        // CUBE
+        Cube cube = new Cube(5);
         System.out.println("Cube Area: " + cube.getArea());
-        System.out.println("Cube Volume: " + cube.getVolume());
-        System.out.println(cube.toString());
-        System.out.println();
+        System.out.println("Cube Volume: " + cube.getVolume()+"\n");
 
-        // Circle object
-        Circle circle = new Circle(4);
-        System.out.println("Circle Area: " + circle.getArea());
-        System.out.println(circle.toString());
-        System.out.println();
+        // CIRCLE
+        Circle circle = new Circle(3);
+        System.out.printf("Circle Area: %.2f\n", circle.getArea());
+        System.out.println(circle.toString()+"\n");
 
-        // Sphere object
-        Sphere sphere = new Sphere(2);
-        System.out.println("Sphere Area: " + sphere.getArea());
-        System.out.println("Sphere Volume: " + sphere.getVolume());
-        System.out.println(sphere.toString());
-        System.out.println();
 
-        // Cylinder object
-        Cylinder cylinder = new Cylinder(3, 7);
-        System.out.println("Cylinder Area: " + cylinder.getArea());
-        System.out.println("Cylinder Volume: " + cylinder.getVolume());
+        // SPHERE
+        Sphere sphere = new Sphere(5);
+        System.out.printf("Sphere Area: %.2f\n", sphere.getArea());
+        System.out.println(sphere.toString()+"\n");
+
+        // CYLINDER
+        Cylinder cylinder = new Cylinder(5, 10);
         System.out.println(cylinder.toString());
+        System.out.printf("Cylinder Volume: %.2f", cylinder.getVolume());
+
     }
-
 }
-
