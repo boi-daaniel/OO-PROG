@@ -1,5 +1,5 @@
 // SQUARE inheriting SHAPE
-public class Square extends Shape{
+class Square extends Shape{
     private double side;
 
     // DEFAULT CONSTRUCTOR AND PARAMETERIZED CONSTRUCTOR
