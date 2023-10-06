@@ -4,7 +4,7 @@ class Cylinder extends Circle implements ThreeD{
 
     // DEFAULT CONSTRUCTOR AND PARAMETERIZED CONSTRUCTOR
     public Cylinder() {
-        super();
+        this.height = 0;
     }
 
     public Cylinder(double radius, double height) {
