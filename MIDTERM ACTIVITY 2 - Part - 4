@@ -1,5 +1,5 @@
 //CUBE inheriting SQUARE and ThreeD
-public class Cube extends Square implements ThreeD{
+class Cube extends Square implements ThreeD{
 
     // DEFAULT CONSTRUCTOR AND PARAMETERIZED CONSTRUCTOR
     public Cube() {
