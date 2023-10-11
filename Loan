@@ -1,0 +1,35 @@
+abstract class Loan implements LoanConstants{
+   public int LoanNumber;
+   public String LastName;
+   public double LoanAmount;
+   public double interestRate;
+   public int term;
+   
+   public Loan(int LoanNumber, String LastName, double LoanAmount, int term){
+      // Do not allow loan amounts over $100,000.
+      if(LoanAmount > MaxLoanAmount){
+         this.LoanAmount = MaxLoanAmount;
+      } else {
+         this.LoanAmount = LoanAmount;
+      }
+      
+      this.LoanNumber = LoanNumber;
+      this.LastName = LastName;
+      // Force any loan term to a short-term, 1-year loan.
+      if(term == shortTerm) {
+         this.term = term;
+      } else {
+            this.term = shortTerm;
+      }
+   }
+   
+   public abstract void setInterestRate(double rate);
+   
+   public String toString(){
+      return "Loan Number: " + LoanNumber +
+             "\nCustomer Last Name: " + LastName +
+             "\nLoan Amount: " + LoanAmount +
+             "\nInterest Rate: " + interestRate + 
+             "\nTerm: " + term + "year";
+   }
+}
