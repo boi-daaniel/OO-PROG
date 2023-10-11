@@ -1,0 +1,9 @@
+public interface LoanConstants{
+   int shortTerm = 1;
+   int mediumTerm = 3;
+   int longTerm = 5;
+   
+   String CompanyName = "Reyes Construction Loan Co";
+   double MaxLoanAmount = 100000;
+   
+}
