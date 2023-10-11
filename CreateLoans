@@ -1,0 +1,48 @@
+import java.util.Scanner;
+
+class CreateLoans{
+   public static void main(String[] args){
+      Scanner input = new Scanner(System.in);
+      
+      System.out.print("Enter prime interest rate: ");
+      double primeInterestRate = input.nextDouble();
+      input.nextLine();
+      
+      Loan[] loans = new Loan[5];
+      
+      for(int i=0; i<5; i++){
+         System.out.print("\tSelect Option\n(1.) Business Loan (2.) Personal Loan: ");
+         int loanType = input.nextInt();
+         input.nextLine();
+         
+         System.out.print("Enter Last Name: ");
+         String lastName = input.nextLine();
+         
+         System.out.print("Enter Loan Amount: ");
+         double Amount = input.nextDouble();
+         
+         System.out.print("\tEnter Loan Term Option\n(1) Short Term, (3) Medium Term, (5) Long Term:");
+         int term = input.nextInt();
+         
+         // if user picks 1
+         if(loanType == 1){
+            loans[i] = new BusinessLoan(i + 1, lastName, Amount, term);
+         
+         } 
+         // if user picks 2
+         else if(loanType == 2){
+                  loans[i] = new BusinessLoan(i + 1, lastName, Amount, term);
+         } 
+         // Sets to default business if invalid choice
+         else {
+            System.out.println("Invalid Loan Type defaulting to Business Type");
+            loans[i] = new BusinessLoan(i + 1, lastName, Amount, term);
+         }
+         
+         // Displays
+         for(Loan loan : loans){
+            System.out.println("\nLoan Details:\n" + loan);
+         }
+      }
+   }//Main
+}//Class
