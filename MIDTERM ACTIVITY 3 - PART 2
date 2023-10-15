@@ -9,11 +9,13 @@ public abstract class Loan implements LoanConstants {
     public Loan(int loanNumber, String lastName, double loanAmount, int term) {
         this.loanNumber = loanNumber;
         this.lastName = lastName;
-        this.LoanAmount = Math.min(loanAmount, maximumLoan); // Sets the loanAmount to $100,000 if exceeded using predefined method
+        // Sets minimum loanAmount to $100,000 if exceeded using predefined method
+        this.LoanAmount = Math.min(loanAmount, maximumLoan);
+        // Defaults term to short term if invalid 
         if (term == shortTerm || term == mediumTerm || term == longTerm) {
             this.term = term;
         } else {
-            this.term = shortTerm; // Default to short term if an invalid option is chosen
+            this.term = shortTerm;
         }
     }
 
