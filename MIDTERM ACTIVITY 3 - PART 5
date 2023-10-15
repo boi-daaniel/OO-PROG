@@ -24,6 +24,7 @@ public class CreateLoans {
             System.out.print("Enter Term: ");
             int termInput = input.nextInt();
 
+            // Declare loan
             Loan loan;
             if (loanType == 1) {
                 loan = new BusinessLoan(i + 1, lastName, loanAmount, termInput);
@@ -31,14 +32,16 @@ public class CreateLoans {
                 loan = new PersonalLoan(i + 1, lastName, loanAmount, termInput);
             }
 
-            // Set the interest rate using the prime interest rate as well as the loan-specific interest rate
+            // Pass the argument prime Interest rate to setInterestRate method
             loan.setInterestRate(primeInterestRate);
             loans[i] = loan;
         }
 
+        // Display
         System.out.println("\nLOAN LIST:");
         for (Loan loan : loans) {
             System.out.println(loan.toString());
         }
+
     }
 }
