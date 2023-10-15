@@ -1,10 +1,10 @@
-class BusinessLoan extends Loan {
-   public BusinessLoan(int LoanNumber, String LastName, double LoanAmount, int term){
-      super(LoanNumber, LastName, LoanAmount, term);
-      setInterestRate(0.01); // sets the interest rate to 2 percent over the current prime interest rate.
-   }
-   
-   public void setInterestRate(double rate){
-      interestRate = rate;
-   }
+public class BusinessLoan extends Loan {
+    public BusinessLoan(int loanNumber, String lastName, double loanAmount, int term) {
+        super(loanNumber, lastName, loanAmount, term);
+    }
+
+    @Override
+    public void setInterestRate(double primeInterestRate) {
+        this.interestRate = (0.01 + primeInterestRate) * term;
+    }
 }
