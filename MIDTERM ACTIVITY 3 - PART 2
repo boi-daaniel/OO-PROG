@@ -5,7 +5,7 @@ public abstract class Loan implements LoanConstants {
     double interestRate;
     int term;
 
-    // Constructors
+    // Constructor
     public Loan(int loanNumber, String lastName, double loanAmount, int term) {
         this.loanNumber = loanNumber;
         this.lastName = lastName;
