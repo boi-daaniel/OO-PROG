@@ -1,35 +1,30 @@
-abstract class Loan implements LoanConstants{
-   public int LoanNumber;
-   public String LastName;
-   public double LoanAmount;
-   public double interestRate;
-   public int term;
-   
-   public Loan(int LoanNumber, String LastName, double LoanAmount, int term){
-      // Do not allow loan amounts over $100,000.
-      if(LoanAmount > MaxLoanAmount){
-         this.LoanAmount = MaxLoanAmount;
-      } else {
-         this.LoanAmount = LoanAmount;
-      }
-      
-      this.LoanNumber = LoanNumber;
-      this.LastName = LastName;
-      // Force any loan term to a short-term, 1-year loan.
-      if(term == shortTerm) {
-         this.term = term;
-      } else {
-            this.term = shortTerm;
-      }
-   }
-   
-   public abstract void setInterestRate(double rate);
-   
-   public String toString(){
-      return "Loan Number: " + LoanNumber +
-             "\nCustomer Last Name: " + LastName +
-             "\nLoan Amount: " + LoanAmount +
-             "\nInterest Rate: " + interestRate + 
-             "\nTerm: " + term + "year";
-   }
+public abstract class Loan implements LoanConstants {
+    int loanNumber;
+    String lastName;
+    double LoanAmount;
+    double interestRate;
+    int term;
+
+    // Constructors
+    public Loan(int loanNumber, String lastName, double loanAmount, int term) {
+        this.loanNumber = loanNumber;
+        this.lastName = lastName;
+        this.LoanAmount = Math.min(loanAmount, maximumLoan); // Sets the loanAmount to $100,000 if exceeded using predefined method
+        if (term == shortTerm || term == mediumTerm || term == longTerm) {
+            this.term = term;
+        } else {
+            this.term = shortTerm; // Default to short term if an invalid option is chosen
+        }
+    }
+
+    // Interest rate abstract method for Business & Personal loan subclass
+    public abstract void setInterestRate(double primeInterestRate);
+
+    // Display
+    @Override
+    public String toString() {
+        double TotalLoanAmount = LoanAmount * (1 + interestRate);
+        return String.format("\nLoan Number: %d\nLast Name: %s\nLoan Amount: %.2f\nLoan Amount after Total Interest: %.2f\nTotal Interest Rate: %.2f\nTerm: %d year\nCompany Name: %s",
+            loanNumber, lastName, LoanAmount, TotalLoanAmount, interestRate, term, companyName);
+    }
 }
