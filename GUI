@@ -11,6 +11,7 @@ class TriangleGUI {
     public TriangleGUI() {
         JFrame frame = new JFrame("Triangle Calculator");
         JPanel panel = new JPanel();
+        panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS)); // Set layout to BoxLayout with Y_AXIS alignment
         JLabel lengthLabel = new JLabel("Enter Length:");
         JLabel widthLabel = new JLabel("Enter Width:");
         lengthField = new JTextField(15);
