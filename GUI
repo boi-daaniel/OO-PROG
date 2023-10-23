@@ -5,16 +5,16 @@ import java.awt.event.ActionListener;
 
 class TriangleGUI {
     private JTextField lengthField;
-    private JTextField widthField; // Changed from heightField to widthField
+    private JTextField widthField;
     private JLabel resultLabel;
 
     public TriangleGUI() {
         JFrame frame = new JFrame("Triangle Calculator");
         JPanel panel = new JPanel();
         JLabel lengthLabel = new JLabel("Enter Length:");
-        JLabel widthLabel = new JLabel("Enter Width:"); // Changed from "Enter Height" to "Enter Width"
+        JLabel widthLabel = new JLabel("Enter Width:");
         lengthField = new JTextField(15);
-        widthField = new JTextField(15); // Changed from heightField to widthField
+        widthField = new JTextField(15);
         JButton calculateButton = new JButton("Calculate");
         resultLabel = new JLabel();
 
@@ -25,30 +25,37 @@ class TriangleGUI {
         lengthField.setBackground(Color.WHITE);
         widthField.setBackground(Color.WHITE);
         calculateButton.setBackground(Color.WHITE);
-        calculateButton.setForeground(Color.BLACK); // Change button text color to black
+        calculateButton.setForeground(Color.BLACK);
         resultLabel.setForeground(Color.WHITE);
+
+        // Set preferred size for the text fields
+        lengthField.setPreferredSize(new Dimension(150, 30));
+        widthField.setPreferredSize(new Dimension(150, 30));
 
         calculateButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 double length = Double.parseDouble(lengthField.getText());
-                double width = Double.parseDouble(widthField.getText()); // Changed from height to width
-                double area = 0.5 * length * width; // Changed from height to width
-                double perimeter = length + 2 * (Math.sqrt(Math.pow(width / 2, 2) + Math.pow(length, 2))); // Changed from height to width
-                resultLabel.setText("Area: " + area + " Perimeter: " + perimeter);
+                double width = Double.parseDouble(widthField.getText());
+                double area = length * width;
+                double perimeter = 2 * (length + width);
+                String formattedArea = String.format("%.2f", area);
+                String formattedPerimeter = String.format("%.2f", perimeter);
+                resultLabel.setText("Area: " + formattedArea + " Perimeter: " + formattedPerimeter);
             }
         });
 
         panel.add(lengthLabel);
         panel.add(lengthField);
-        panel.add(widthLabel); // Changed from heightLabel to widthLabel
-        panel.add(widthField); // Changed from heightField to widthField
+        panel.add(widthLabel);
+        panel.add(widthField);
         panel.add(calculateButton);
         panel.add(resultLabel);
 
         frame.add(panel);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(300, 200); // Set initial frame size
+        frame.setSize(300, 200);
+        frame.setLocationRelativeTo(null); // Center the frame on the screen
         frame.setVisible(true);
     }
 
