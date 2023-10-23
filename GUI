@@ -50,7 +50,7 @@ class TriangleGUI {
         panel.add(widthLabel);
         panel.add(widthField);
         panel.add(calculateButton);
-        panel.add(resultLabel);
+        panel.add(resultLabel); // Results label added below the calculate button
 
         frame.add(panel);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
