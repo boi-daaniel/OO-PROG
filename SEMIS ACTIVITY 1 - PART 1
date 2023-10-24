@@ -20,11 +20,11 @@ public class Calculator extends JFrame{
       resultLabel = new JLabel();
 
       // Frame Properties
-      this.setTitle("Triangle Calculator");
+      this.setTitle("Triangle");
       this.add(panel);
       this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-      this.setSize(300, 200);
-      this.setResizable(false);
+      this.setSize(230, 230);
+      this.setResizable(true);
       this.setLocationRelativeTo(null); 
       this.setVisible(true);
       ImageIcon image = new ImageIcon("LOGO.png");
@@ -61,8 +61,9 @@ public class Calculator extends JFrame{
         panel.add(lengthField);
         panel.add(widthLabel);
         panel.add(widthField);
-        panel.add(resultLabel);
         panel.add(calculateButton);
+        panel.add(resultLabel);
         
    }
+     
 }
