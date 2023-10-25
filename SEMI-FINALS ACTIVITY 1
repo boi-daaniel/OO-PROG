@@ -78,8 +78,8 @@ public class SecondsCalculator extends JFrame {
       calculateButton = new JButton("Calculate");
       calculateButton.setForeground(new Color(0x1b2021));
       calculateButton.setBackground(textColor);
-      
       calculateButton.setBorder(BorderFactory.createLineBorder(Color.BLACK));
+
       calculateButton.addActionListener(new ActionListener() {
          public void actionPerformed(ActionEvent calculate) {
             calculateTime();
@@ -90,8 +90,8 @@ public class SecondsCalculator extends JFrame {
       exitButton = new JButton("Exit");
       exitButton.setForeground(new Color(0x1b2021));
       exitButton.setBackground(textColor);
-      
       exitButton.setBorder(BorderFactory.createLineBorder(Color.BLACK));
+
       exitButton.addActionListener(new ActionListener() {
          public void actionPerformed(ActionEvent exit) {
                 System.exit(0);
@@ -148,8 +148,9 @@ public class SecondsCalculator extends JFrame {
          JOptionPane.showMessageDialog(this, "Invalid input. Please enter a valid number of seconds.");
       }
    }
-
-    public static void main(String[] args) {
-        new SecondsCalculator();
-    }
-}
+   
+   // Main method
+   public static void main(String[] args) {
+      new SecondsCalculator();
+   }
+}   
