@@ -8,36 +8,35 @@ public class Seconds extends JFrame {
 
     public Seconds() {
         // Frame Property
-
         this.setTitle("Time Calculator");
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setSize(600, 400);
         this.setResizable(false);
-        this.setLayout(new GridLayout(5, 2));
+        this.setLayout(new FlowLayout(FlowLayout.CENTER));
         this.setLocationRelativeTo(null);
 
         // Panels
         JLabel secondsLabel = new JLabel("Enter Seconds:");
-        Seconds = new JTextField();
+        Seconds = new JTextField(10);
         Seconds.setBorder(BorderFactory.createLineBorder(Color.BLACK));
 
         JLabel yearsLabel = new JLabel("Seconds to Years:");
-        Years = new JTextField();
+        Years = new JTextField(10);
         Years.setBorder(BorderFactory.createLineBorder(Color.BLACK));
         Years.setEditable(false);  // Set Years text field as non-editable
 
         JLabel weeksLabel = new JLabel("Seconds to Weeks:");
-        Weeks = new JTextField();
+        Weeks = new JTextField(10);
         Weeks.setBorder(BorderFactory.createLineBorder(Color.BLACK));
         Weeks.setEditable(false);  // Set Weeks text field as non-editable
 
         JLabel hoursLabel = new JLabel("Seconds to Hours:");
-        Hours = new JTextField();
+        Hours = new JTextField(10);
         Hours.setBorder(BorderFactory.createLineBorder(Color.BLACK));
         Hours.setEditable(false);  // Set Hours text field as non-editable
 
         JLabel minutesLabel = new JLabel("Seconds to Minutes:");
-        Minutes = new JTextField();
+        Minutes = new JTextField(10);
         Minutes.setBorder(BorderFactory.createLineBorder(Color.BLACK));
         Minutes.setEditable(false);  // Set Minutes text field as non-editable
 
@@ -55,7 +54,7 @@ public class Seconds extends JFrame {
             }
         });
 
-        // Add panels to the frame
+        // Add components to the frame
         add(secondsLabel);
         add(Seconds);
         add(yearsLabel);
@@ -66,14 +65,8 @@ public class Seconds extends JFrame {
         add(Hours);
         add(minutesLabel);
         add(Minutes);
-
-        // Create a panel for buttons with FlowLayout
-        JPanel buttonPanel = new JPanel(new FlowLayout(FlowLayout.CENTER));
-        buttonPanel.add(calculateButton);
-        buttonPanel.add(exitButton);
-
-        // Add the button panel to the main frame
-        add(buttonPanel);
+        add(calculateButton);
+        add(exitButton);
 
         this.setVisible(true);
     }
@@ -91,18 +84,22 @@ public class Seconds extends JFrame {
             int remainingSeconds = inputSeconds % secondsInYear;
             int weeks = remainingSeconds / secondsInWeek;
             remainingSeconds %= secondsInWeek;
+            int days = remainingSeconds / secondsInDay;
+            remainingSeconds %= secondsInDay;
             int hours = remainingSeconds / secondsInHour;
             remainingSeconds %= secondsInHour;
             int minutes = remainingSeconds / secondsInMinute;
 
             Years.setText(Integer.toString(years));
             Weeks.setText(Integer.toString(weeks));
-            Hours.setText(Integer.toString(hours));
+            Hours.setText(Integer.toString(days * 24 + hours)); // Convert remaining days to hours and add hours
             Minutes.setText(Integer.toString(minutes));
         } catch (NumberFormatException e) {
             JOptionPane.showMessageDialog(this, "Invalid input. Please enter a valid number of seconds.");
         }
     }
 
-    
+    public static void main(String[] args) {
+        new Seconds();
+    }
 }
