@@ -135,9 +135,9 @@ public class SecondsCalculator extends JFrame {
          remainingSeconds %= secondsInWeek;
          int days = remainingSeconds / secondsInDay;
          remainingSeconds %= secondsInDay;
-         int hours = remainingSeconds / secondsInHour;  // Updated this line
+         int hours = remainingSeconds / secondsInHour;
          remainingSeconds %= secondsInHour;
-         int minutes = remainingSeconds / secondsInMinute;  // Updated this line
+         int minutes = remainingSeconds / secondsInMinute;
    
          Years.setText(Integer.toString(years));
          Weeks.setText(Integer.toString(weeks));
