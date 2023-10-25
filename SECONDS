@@ -55,25 +55,25 @@ public class Seconds extends JFrame {
             }
         });
 
-        // Seconds
+        // Add panels to the frame
         add(secondsLabel);
         add(Seconds);
-        // Years
         add(yearsLabel);
         add(Years);
-        // Weeks
         add(weeksLabel);
         add(Weeks);
-        // Hours
         add(hoursLabel);
         add(Hours);
-        // Minutes
         add(minutesLabel);
         add(Minutes);
 
-        // Buttons
-        add(calculateButton);
-        add(exitButton);
+        // Create a panel for buttons with FlowLayout
+        JPanel buttonPanel = new JPanel(new FlowLayout(FlowLayout.CENTER));
+        buttonPanel.add(calculateButton);
+        buttonPanel.add(exitButton);
+
+        // Add the button panel to the main frame
+        add(buttonPanel);
 
         this.setVisible(true);
     }
