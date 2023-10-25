@@ -1,0 +1,83 @@
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.*;
+
+public class Seconds extends JFrame{
+   private JTextField Seconds, Years, Weeks, Hours, Minutes;
+   private JButton calculateButton, exitButton;
+   
+   public Seconds(){
+      //Frame Property 
+      
+      this.setTitle("Time Calculator");
+      this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+      this.setSize(600, 400);
+      this.setResizable(false);
+      this.setLayout(new GridLayout(5,2));
+      this.setLocationRelativeTo(null); 
+      
+      // Panels
+      JLabel secondsLabel = new JLabel("Enter Seconds:");
+      Seconds = new JTextField();
+      Seconds.setBorder(BorderFactory.createLineBorder(Color.BLACK));
+      
+      JLabel yearsLabel = new JLabel("Seconds to Years:");
+      Years = new JTextField();
+      Years.setBorder(BorderFactory.createLineBorder(Color.BLACK));
+      
+      JLabel weeksLabel = new JLabel("Seconds to Weeks:");
+      Weeks = new JTextField();
+      Weeks.setBorder(BorderFactory.createLineBorder(Color.BLACK));
+      
+      JLabel hoursLabel = new JLabel("Seconds to Hours:");
+      Hours = new JTextField();
+      Hours.setBorder(BorderFactory.createLineBorder(Color.BLACK));
+      
+      JLabel minutesLabel = new JLabel("Seconds to Minutes:");
+      Minutes = new JTextField();
+      Minutes.setBorder(BorderFactory.createLineBorder(Color.BLACK));
+      
+      calculateButton = new JButton("Calculate");
+      calculateButton.addActionListener(new ActionListener(){
+         public void actionPerformed(ActionEvent calculate){
+            //calculateTime
+         }
+      });
+      
+      exitButton = new JButton("Exit");
+      exitButton.addActionListener(new ActionListener(){
+         public void actionPerformed(ActionEvent exit){
+            System.exit(0);
+         }
+      });
+      
+      
+      
+      // Seconds
+      add(secondsLabel);
+      add(Seconds);
+      // Years
+      add(yearsLabel);
+      add(Years);
+      // Weeks
+      add(weeksLabel);
+      add(Weeks);
+      // Hours
+      add(hoursLabel);
+      add(Hours);
+      // Minutes
+      add(minutesLabel);
+      add(Minutes);
+      
+      // Buttons
+      add(calculateButton);
+      add(exitButton);
+      
+      this.setVisible(true);
+   }
+   
+   public void calculateTime(){
+      
+   }
+   
+}
