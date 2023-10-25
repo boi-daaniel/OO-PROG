@@ -2,82 +2,109 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 
-public class Seconds extends JFrame{
-   private JTextField Seconds, Years, Weeks, Hours, Minutes;
-   private JButton calculateButton, exitButton;
-   
-   public Seconds(){
-      //Frame Property 
-      
-      this.setTitle("Time Calculator");
-      this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-      this.setSize(600, 400);
-      this.setResizable(false);
-      this.setLayout(new GridLayout(5,2));
-      this.setLocationRelativeTo(null); 
-      
-      // Panels
-      JLabel secondsLabel = new JLabel("Enter Seconds:");
-      Seconds = new JTextField();
-      Seconds.setBorder(BorderFactory.createLineBorder(Color.BLACK));
-      
-      JLabel yearsLabel = new JLabel("Seconds to Years:");
-      Years = new JTextField();
-      Years.setBorder(BorderFactory.createLineBorder(Color.BLACK));
-      
-      JLabel weeksLabel = new JLabel("Seconds to Weeks:");
-      Weeks = new JTextField();
-      Weeks.setBorder(BorderFactory.createLineBorder(Color.BLACK));
-      
-      JLabel hoursLabel = new JLabel("Seconds to Hours:");
-      Hours = new JTextField();
-      Hours.setBorder(BorderFactory.createLineBorder(Color.BLACK));
-      
-      JLabel minutesLabel = new JLabel("Seconds to Minutes:");
-      Minutes = new JTextField();
-      Minutes.setBorder(BorderFactory.createLineBorder(Color.BLACK));
-      
-      calculateButton = new JButton("Calculate");
-      calculateButton.addActionListener(new ActionListener(){
-         public void actionPerformed(ActionEvent calculate){
-            //calculateTime
-         }
-      });
-      
-      exitButton = new JButton("Exit");
-      exitButton.addActionListener(new ActionListener(){
-         public void actionPerformed(ActionEvent exit){
-            System.exit(0);
-         }
-      });
-      
-      
-      
-      // Seconds
-      add(secondsLabel);
-      add(Seconds);
-      // Years
-      add(yearsLabel);
-      add(Years);
-      // Weeks
-      add(weeksLabel);
-      add(Weeks);
-      // Hours
-      add(hoursLabel);
-      add(Hours);
-      // Minutes
-      add(minutesLabel);
-      add(Minutes);
-      
-      // Buttons
-      add(calculateButton);
-      add(exitButton);
-      
-      this.setVisible(true);
-   }
-   
-   public void calculateTime(){
-      
-   }
-   
+public class Seconds extends JFrame {
+    private JTextField Seconds, Years, Weeks, Hours, Minutes;
+    private JButton calculateButton, exitButton;
+
+    public Seconds() {
+        // Frame Property
+
+        this.setTitle("Time Calculator");
+        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.setSize(600, 400);
+        this.setResizable(false);
+        this.setLayout(new GridLayout(5, 2));
+        this.setLocationRelativeTo(null);
+
+        // Panels
+        JLabel secondsLabel = new JLabel("Enter Seconds:");
+        Seconds = new JTextField();
+        Seconds.setBorder(BorderFactory.createLineBorder(Color.BLACK));
+
+        JLabel yearsLabel = new JLabel("Seconds to Years:");
+        Years = new JTextField();
+        Years.setBorder(BorderFactory.createLineBorder(Color.BLACK));
+        Years.setEditable(false);  // Set Years text field as non-editable
+
+        JLabel weeksLabel = new JLabel("Seconds to Weeks:");
+        Weeks = new JTextField();
+        Weeks.setBorder(BorderFactory.createLineBorder(Color.BLACK));
+        Weeks.setEditable(false);  // Set Weeks text field as non-editable
+
+        JLabel hoursLabel = new JLabel("Seconds to Hours:");
+        Hours = new JTextField();
+        Hours.setBorder(BorderFactory.createLineBorder(Color.BLACK));
+        Hours.setEditable(false);  // Set Hours text field as non-editable
+
+        JLabel minutesLabel = new JLabel("Seconds to Minutes:");
+        Minutes = new JTextField();
+        Minutes.setBorder(BorderFactory.createLineBorder(Color.BLACK));
+        Minutes.setEditable(false);  // Set Minutes text field as non-editable
+
+        calculateButton = new JButton("Calculate");
+        calculateButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent calculate) {
+                calculateTime();
+            }
+        });
+
+        exitButton = new JButton("Exit");
+        exitButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent exit) {
+                System.exit(0);
+            }
+        });
+
+        // Seconds
+        add(secondsLabel);
+        add(Seconds);
+        // Years
+        add(yearsLabel);
+        add(Years);
+        // Weeks
+        add(weeksLabel);
+        add(Weeks);
+        // Hours
+        add(hoursLabel);
+        add(Hours);
+        // Minutes
+        add(minutesLabel);
+        add(Minutes);
+
+        // Buttons
+        add(calculateButton);
+        add(exitButton);
+
+        this.setVisible(true);
+    }
+
+    public void calculateTime() {
+        try {
+            int inputSeconds = Integer.parseInt(Seconds.getText());
+            int secondsInMinute = 60;
+            int secondsInHour = secondsInMinute * 60;
+            int secondsInDay = secondsInHour * 24;
+            int secondsInWeek = secondsInDay * 7;
+            int secondsInYear = secondsInDay * 365;
+
+            int years = inputSeconds / secondsInYear;
+            int remainingSeconds = inputSeconds % secondsInYear;
+            int weeks = remainingSeconds / secondsInWeek;
+            remainingSeconds %= secondsInWeek;
+            int hours = remainingSeconds / secondsInHour;
+            remainingSeconds %= secondsInHour;
+            int minutes = remainingSeconds / secondsInMinute;
+
+            Years.setText(Integer.toString(years));
+            Weeks.setText(Integer.toString(weeks));
+            Hours.setText(Integer.toString(hours));
+            Minutes.setText(Integer.toString(minutes));
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(this, "Invalid input. Please enter a valid number of seconds.");
+        }
+    }
+
+    public static void main(String[] args) {
+        new Seconds();
+    }
 }
