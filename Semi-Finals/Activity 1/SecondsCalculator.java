@@ -93,9 +93,8 @@ public class SecondsCalculator extends JFrame {
             double hours = remainingSeconds / SECONDS_IN_HOUR;
             double minutes = remainingSeconds / SECONDS_IN_MINUTE;
 
-            // Format the output of years in scientific notation
-            String formattedYears = String.format("%.4e", years);
 
+            String formattedYears = String.format("%.4e", years);
             Years.setText(formattedYears);
             Weeks.setText(Double.toString(weeks));
             Hours.setText(Double.toString(hours));
