@@ -15,16 +15,16 @@ public class SecondsCalculator extends JFrame {
    // Constructor
    public SecondsCalculator() {
       // Frame Properties
-      setTitle("Time Calculator");
-      setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
       setSize(500, 300);
       setLayout(new GridLayout(6,2));
-      setLocationRelativeTo(null);
-      Border blackBorder = BorderFactory.createLineBorder(Color.BLACK);
-      getContentPane().setBackground(new Color(0x141413));
-      getRootPane().setBorder(blackBorder);
+      setTitle("Time Calculator");
       Color textColor = new Color(0xfbfaf8);
       Color backgroundColor = new Color(0xffecd1);
+      Border blackBorder = BorderFactory.createLineBorder(Color.BLACK);
+      setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+      setLocationRelativeTo(null);
+      getContentPane().setBackground(new Color(0x141413));
+      getRootPane().setBorder(blackBorder);
       ImageIcon image = new ImageIcon("logo.png");
       setIconImage(image.getImage());
        
@@ -86,6 +86,7 @@ public class SecondsCalculator extends JFrame {
       calculateButton.addActionListener(new ActionListener() {
          public void actionPerformed(ActionEvent calculate) {
             try {
+            // the input is parsed and converted into years, weeks, hours, and minutes.
             int inputSeconds = Integer.parseInt(Seconds.getText());
             double years = inputSeconds / SECONDS_IN_YEAR;
             double remainingSeconds = inputSeconds % SECONDS_IN_YEAR;
