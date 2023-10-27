@@ -1,13 +1,16 @@
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
+import javax.swing.border.Border;
 
 public class Triangle extends JFrame{
+   // Variables
    private JTextField lengthField, widthField, Area, Perimeter;
    private JButton calculateButton, exitButton;
+   private Border blackBorder = BorderFactory.createLineBorder(Color.BLACK);
    
    public Triangle(){
-      //Frame Properties
+      // Frame Properties
       setTitle("Triangle Calculator");
       setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
       setSize(500, 300);
@@ -18,41 +21,49 @@ public class Triangle extends JFrame{
       ImageIcon image = new ImageIcon("logo.png");
       setIconImage(image.getImage());
       
-      // Length 
+      // Length Panel Properties
       JLabel lengthLabel = new JLabel("Enter Length:");
       lengthLabel.setForeground(textColor);
       lengthLabel.setHorizontalAlignment(SwingConstants.CENTER);
       lengthField = new JTextField();
+      lengthField.setHorizontalAlignment(SwingConstants.CENTER);
       lengthField.setBackground(new Color(0xffecd1));
+      lengthField.setBorder(blackBorder);
 
-      // Width
+      // Width Panel Properties
       JLabel widthLabel = new JLabel("Enter Width:");
       widthLabel.setForeground(textColor);
       widthLabel.setHorizontalAlignment(SwingConstants.CENTER);
       widthField = new JTextField();
+      widthField.setHorizontalAlignment(SwingConstants.CENTER);
       widthField.setBackground(new Color(0xffecd1));
+      widthField.setBorder(blackBorder);
 
-      // Area
+      // Area Panel Properties
       JLabel areaLabel = new JLabel("Area: ");
       areaLabel.setForeground(textColor);
       areaLabel.setHorizontalAlignment(SwingConstants.CENTER);
       Area = new JTextField();
+      Area.setHorizontalAlignment(SwingConstants.CENTER);
       Area.setEditable(false);
       Area.setBackground(new Color(0xffecd1));
+      Area.setBorder(blackBorder);
       
-      // Perimeter
+      // Perimeter Panel Properties
       JLabel perimeterLabel = new JLabel("Perimeter: ");
       perimeterLabel.setForeground(textColor);
       perimeterLabel.setHorizontalAlignment(SwingConstants.CENTER);
       Perimeter = new JTextField();
+      Perimeter.setHorizontalAlignment(SwingConstants.CENTER);
       Perimeter.setEditable(false);
       Perimeter.setBackground(new Color(0xffecd1));
+      Perimeter.setBorder(blackBorder);
       
       // Calculate Button
       JButton calculateButton = new JButton("Calculate");
       calculateButton.setForeground(new Color(0x1b2021));
       calculateButton.setBackground(textColor);
-      calculateButton.setBorder(BorderFactory.createLineBorder(Color.BLACK));
+      calculateButton.setBorder(blackBorder);
       
       calculateButton.addActionListener(new ActionListener() {
          public void actionPerformed(ActionEvent e) {
@@ -63,8 +74,7 @@ public class Triangle extends JFrame{
             String formattedArea = String.valueOf(area);
             String formattedPerimeter = String.valueOf(perimeter);
             Area.setText(formattedArea);
-            Perimeter.setText(formattedPerimeter);
-                
+            Perimeter.setText(formattedPerimeter);       
          }
       });
 
@@ -72,16 +82,14 @@ public class Triangle extends JFrame{
       JButton exitButton = new JButton("Exit");
       exitButton.setForeground(new Color(0x1b2021));
       exitButton.setBackground(textColor);
-      exitButton.setBorder(BorderFactory.createLineBorder(Color.BLACK));
-      
-      exitButton.setBorder(BorderFactory.createLineBorder(Color.BLACK));
+      exitButton.setBorder(blackBorder);
+ 
       exitButton.addActionListener(new ActionListener() {
          public void actionPerformed(ActionEvent exit) {
                 System.exit(0);
          }
       });
       
-       
       // Components
       add(lengthLabel);
       add(lengthField);
