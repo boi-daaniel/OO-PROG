@@ -11,9 +11,8 @@ public class SecondsCalculator extends JFrame {
    private static final double SECONDS_IN_WEEK = 604800;
    private static final double SECONDS_IN_HOUR = 3600;
    private static final double SECONDS_IN_MINUTE = 60;
-   private Border blackBorder = BorderFactory.createLineBorder(Color.BLACK);
-   private Color backgroundColor = new Color(0xffecd1);
 
+   // Constructor
    public SecondsCalculator() {
       // Frame Properties
       setTitle("Time Calculator");
@@ -21,9 +20,11 @@ public class SecondsCalculator extends JFrame {
       setSize(500, 300);
       setLayout(new GridLayout(6,2));
       setLocationRelativeTo(null);
+      Border blackBorder = BorderFactory.createLineBorder(Color.BLACK);
       getContentPane().setBackground(new Color(0x141413));
       getRootPane().setBorder(blackBorder);
       Color textColor = new Color(0xfbfaf8);
+      Color backgroundColor = new Color(0xffecd1);
       ImageIcon image = new ImageIcon("logo.png");
       setIconImage(image.getImage());
        
@@ -92,7 +93,7 @@ public class SecondsCalculator extends JFrame {
             double hours = remainingSeconds / SECONDS_IN_HOUR;
             double minutes = remainingSeconds / SECONDS_IN_MINUTE;
 
-            String formattedYears = String.format("%.4e", years);
+            String formattedYears = String.format("%.4E", years);
             Years.setText(formattedYears);
             Weeks.setText(Double.toString(weeks));
             Hours.setText(Double.toString(hours));
