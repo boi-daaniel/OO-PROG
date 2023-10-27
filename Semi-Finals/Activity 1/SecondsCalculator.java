@@ -86,13 +86,11 @@ public class SecondsCalculator extends JFrame {
          public void actionPerformed(ActionEvent calculate) {
             try {
             int inputSeconds = Integer.parseInt(Seconds.getText());
-
             double years = inputSeconds / SECONDS_IN_YEAR;
             double remainingSeconds = inputSeconds % SECONDS_IN_YEAR;
             double weeks = remainingSeconds / SECONDS_IN_WEEK;
             double hours = remainingSeconds / SECONDS_IN_HOUR;
             double minutes = remainingSeconds / SECONDS_IN_MINUTE;
-
 
             String formattedYears = String.format("%.4e", years);
             Years.setText(formattedYears);
