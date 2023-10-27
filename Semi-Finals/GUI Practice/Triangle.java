@@ -7,8 +7,7 @@ public class Triangle extends JFrame{
    // Variables
    private JTextField lengthField, widthField, Area, Perimeter;
    private JButton calculateButton, exitButton;
-   private Border blackBorder = BorderFactory.createLineBorder(Color.BLACK);
-   
+  
    public Triangle(){
       // Frame Properties
       setTitle("Triangle Calculator");
@@ -18,6 +17,8 @@ public class Triangle extends JFrame{
       setLocationRelativeTo(null);
       getContentPane().setBackground(new Color(0x141413));
       Color textColor = new Color(0xfbfaf8);
+      Color backgroundColor = new Color(0xffecd1);
+      Border blackBorder = BorderFactory.createLineBorder(Color.BLACK);
       ImageIcon image = new ImageIcon("logo.png");
       setIconImage(image.getImage());
       
@@ -27,7 +28,7 @@ public class Triangle extends JFrame{
       lengthLabel.setHorizontalAlignment(SwingConstants.CENTER);
       lengthField = new JTextField();
       lengthField.setHorizontalAlignment(SwingConstants.CENTER);
-      lengthField.setBackground(new Color(0xffecd1));
+      lengthField.setBackground(backgroundColor);
       lengthField.setBorder(blackBorder);
 
       // Width Panel Properties
@@ -36,7 +37,7 @@ public class Triangle extends JFrame{
       widthLabel.setHorizontalAlignment(SwingConstants.CENTER);
       widthField = new JTextField();
       widthField.setHorizontalAlignment(SwingConstants.CENTER);
-      widthField.setBackground(new Color(0xffecd1));
+      widthField.setBackground(backgroundColor);
       widthField.setBorder(blackBorder);
 
       // Area Panel Properties
@@ -46,7 +47,7 @@ public class Triangle extends JFrame{
       Area = new JTextField();
       Area.setHorizontalAlignment(SwingConstants.CENTER);
       Area.setEditable(false);
-      Area.setBackground(new Color(0xffecd1));
+      Area.setBackground(backgroundColor);
       Area.setBorder(blackBorder);
       
       // Perimeter Panel Properties
@@ -56,7 +57,7 @@ public class Triangle extends JFrame{
       Perimeter = new JTextField();
       Perimeter.setHorizontalAlignment(SwingConstants.CENTER);
       Perimeter.setEditable(false);
-      Perimeter.setBackground(new Color(0xffecd1));
+      Perimeter.setBackground(backgroundColor);
       Perimeter.setBorder(blackBorder);
       
       // Calculate Button
