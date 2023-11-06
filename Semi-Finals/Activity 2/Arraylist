@@ -1,0 +1,56 @@
+import javax.swing.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.ArrayList;
+import java.util.Collections;
+
+public class HistoricalEvents extends JFrame {
+    private ArrayList<String> eventsList;
+    private int currentIndex;
+
+    public HistoricalEvents() {
+        // Frame Properties
+        setTitle("Historical Events");
+        setSize(600, 400);
+        setLayout(new GridLayout(2, 0));
+        setLocationRelativeTo(null);
+
+        eventsList = new ArrayList<>();
+        eventsList.add("Ketchup was once sold as a medicine");
+        eventsList.add("Ice pops were accidentally invented by a kid!");
+        eventsList.add("Tug-of-war was once an Olympic sport");
+        eventsList.add("Iceland has the world's oldest parliament.");
+        eventsList.add("A horse became a Senator in Ancient Rome.");
+        eventsList.add("The Great Wall of China was built over 2,000 years ago");
+        eventsList.add("Leonardo da Vinci painted the Mona Lisa between 1503 and 1506");
+        eventsList.add("The first computer programmer was Ada Lovelace");
+        eventsList.add("The first moon landing occurred on July 20, 1969");
+        eventsList.add("The fall of the Berlin Wall happened on November 9, 1989");
+
+        JLabel eventLabel = new JLabel(eventsList.get(0));
+        eventLabel.setHorizontalAlignment(SwingConstants.CENTER);
+        JButton shuffleButton = new JButton("Shuffle");
+
+        // Components
+        add(eventLabel);
+        add(shuffleButton);
+
+        shuffleButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if (currentIndex < eventsList.size() - 1) {
+                    currentIndex++;
+                } else {
+                    currentIndex = 0;
+                }
+                eventLabel.setText(eventsList.get(currentIndex));
+            }
+        });
+
+        setVisible(true);
+    }
+
+    public static void main(String[] args) {
+        new HistoricalEvents();
+    }
+}
