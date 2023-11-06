@@ -3,10 +3,11 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Random;
 
 public class HistoricalEvents extends JFrame {
     private ArrayList<String> eventsList;
-    private int currentIndex;
+    private JLabel[] labels;
 
     public HistoricalEvents() {
         // Frame Properties
@@ -29,7 +30,7 @@ public class HistoricalEvents extends JFrame {
 
         Collections.shuffle(eventsList);
 
-        JLabel[] labels = new JLabel[5];
+        labels = new JLabel[5];
         for (int i = 0; i < 5; i++) {
             labels[i] = new JLabel(eventsList.get(i));
             labels[i].setHorizontalAlignment(SwingConstants.CENTER);
@@ -44,11 +45,11 @@ public class HistoricalEvents extends JFrame {
         shuffleButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                // Shuffle the events and update the labels
-                Collections.shuffle(eventsList);
-                for (int i = 0; i < 5; i++) {
-                    labels[i].setText(eventsList.get(i));
-                }
+                // Change only one random label
+                Random random = new Random();
+                int randomIndex = random.nextInt(5);
+                eventsList.set(randomIndex, "New Historical Event");
+                labels[randomIndex].setText(eventsList.get(randomIndex));
             }
         });
 
