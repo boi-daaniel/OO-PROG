@@ -12,7 +12,7 @@ public class HistoricalEvents extends JFrame {
         // Frame Properties
         setTitle("Historical Events");
         setSize(600, 400);
-        setLayout(new GridLayout(2, 0));
+        setLayout(new GridLayout(6, 0));
         setLocationRelativeTo(null);
 
         eventsList = new ArrayList<>();
@@ -27,23 +27,28 @@ public class HistoricalEvents extends JFrame {
         eventsList.add("The first moon landing occurred on July 20, 1969");
         eventsList.add("The fall of the Berlin Wall happened on November 9, 1989");
 
-        JLabel eventLabel = new JLabel(eventsList.get(0));
-        eventLabel.setHorizontalAlignment(SwingConstants.CENTER);
+        Collections.shuffle(eventsList);
+
+        JLabel[] labels = new JLabel[5];
+        for (int i = 0; i < 5; i++) {
+            labels[i] = new JLabel(eventsList.get(i));
+            labels[i].setHorizontalAlignment(SwingConstants.CENTER);
+            add(labels[i]);
+        }
+
         JButton shuffleButton = new JButton("Shuffle");
 
         // Components
-        add(eventLabel);
         add(shuffleButton);
 
         shuffleButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if (currentIndex < eventsList.size() - 1) {
-                    currentIndex++;
-                } else {
-                    currentIndex = 0;
+                // Shuffle the events and update the labels
+                Collections.shuffle(eventsList);
+                for (int i = 0; i < 5; i++) {
+                    labels[i].setText(eventsList.get(i));
                 }
-                eventLabel.setText(eventsList.get(currentIndex));
             }
         });
 
