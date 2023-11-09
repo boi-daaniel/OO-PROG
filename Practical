@@ -1,0 +1,84 @@
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.*;
+
+class averageCalculator extends JFrame{
+   JTextField one,two,three,four,five,six,seven,eight;
+   
+   public averageCalculator(){
+      setSize(500,300);
+      setTitle("Average Calculator");
+      setLayout(new GridLayout(6,2));
+      
+      JLabel testScore = new JLabel("testScore");
+      JLabel weightAv = new JLabel("weight");
+      
+      one = new JTextField();
+      two = new JTextField();
+      three = new JTextField();
+      four = new JTextField();
+      five = new JTextField();
+      six = new JTextField();
+      seven = new JTextField();
+      eight = new JTextField();
+      
+      JButton calculate = new JButton("Calculate");
+      JTextArea resultArea = new JTextArea("Total");
+      calculate.addActionListener(new ActionListener() {
+         public void actionPerformed(ActionEvent e){
+            
+            String s1 = one.getText();
+            double score1 = Double.parseDouble(s1);           
+            String s2 = two.getText();
+            double score2 = Double.parseDouble(s2);                 
+            String s3 = three.getText();
+            double score3 = Double.parseDouble(s3);                       
+            String s4 = four.getText();
+            double score4 = Double.parseDouble(s4);      
+            String w1 = five.getText();
+            double weight1 = Double.parseDouble(w1);      
+            String w2 = six.getText();
+            double weight2 = Double.parseDouble(w2);
+            String w3 = seven.getText();
+            double weight3 = Double.parseDouble(w3);
+            String w4 = eight.getText();
+            double weight4 = Double.parseDouble(w4);
+            
+            
+            double TestScore1 = score1 * weight1;
+            double TestScore2 = score2 * weight2;
+            double TestScore3 = score3 * weight3;
+            double TestScore4 = score4 * weight4;
+            
+            double totalScore =  TestScore1 + TestScore2 +  TestScore3 +  TestScore4;
+            String resultString = String.valueOf(totalScore);
+            
+            resultArea.setText(resultString);
+            
+         }
+      });
+      
+      
+      
+      add(testScore);
+      add(weightAv);
+      
+      add(one);
+      add(two);
+      add(three);
+      add(four);
+      add(five);
+      add(six);
+      add(seven);
+      add(eight);
+      
+      add(calculate);
+      add(resultArea);
+      
+      setVisible(true);
+   }
+   
+   public static void main(String[] args){
+      new averageCalculator();
+   }
+}
