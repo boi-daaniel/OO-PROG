@@ -1,63 +1,43 @@
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
-public class PizzaOrderAppGUI extends JFrame {
-
-    private JComboBox<String> sizeComboBox;
-    private JList<String> toppingsList;
-    private JTextArea priceTextArea;
-
-    private static final String[] SIZE_OPTIONS = {"Small", "Medium", "Large", "Extra Large"};
-    private static final String[] TOPPING_OPTIONS = {"Pepperoni", "Mushrooms", "Onions", "Bell Peppers", "Olives"};
-
-    private static final int[] BASE_PRICES = {300, 400, 500, 600};
-    private static final int TOPPING_PRICE = 10;
-
-    public PizzaOrderAppGUI() {
-        setTitle("Pizza Order Application");
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setSize(400, 300);
-        setLayout(new BorderLayout());
-
-        // Create components
-        sizeComboBox = new JComboBox<>(SIZE_OPTIONS);
-        toppingsList = new JList<>(TOPPING_OPTIONS);
-        priceTextArea = new JTextArea("Total Price: Php " + BASE_PRICES[0]);
-
-        // Set up layout
-        JPanel optionsPanel = new JPanel();
-        optionsPanel.setLayout(new GridLayout(3, 1));
-        optionsPanel.add(new JLabel("Select Pizza Size:"));
-        optionsPanel.add(sizeComboBox);
-        optionsPanel.add(new JLabel("Select Toppings:"));
-        optionsPanel.add(new JScrollPane(toppingsList));
-        optionsPanel.add(new JLabel("Total Price:"));
-        optionsPanel.add(priceTextArea);
-
-        // Add action listener to update price when selections change
-        ActionListener updatePriceListener = e -> updatePrice();
-        sizeComboBox.addActionListener(updatePriceListener);
-        toppingsList.addListSelectionListener(e -> updatePrice());
-
-        // Add components to the main frame
-        add(optionsPanel, BorderLayout.WEST);
-
-        // Set default close operation and make the frame visible
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setVisible(true);
-    }
-
-    private void updatePrice() {
-        int sizePrice = BASE_PRICES[sizeComboBox.getSelectedIndex()];
-        int toppingPrice = toppingsList.getSelectedValuesList().size() * TOPPING_PRICE;
-        int totalPrice = sizePrice + toppingPrice;
-
-        priceTextArea.setText("Total Price: Php " + totalPrice);
-    }
-
-    public static void main(String[] args) {
-        SwingUtilities.invokeLater(() -> new PizzaOrderAppGUI());
-    }
+class dormitory extends JFrame{
+   JCheckBox Private, Internet, CableTV, Microwave, Refrigerator;
+   JTextArea result;
+   
+   dormitory(){
+      setTitle("Dormitory");
+      setSize(500,300);
+      setLocationRelativeTo(null);
+      setLayout(new FlowLayout());
+      setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+      
+      String[] options = {"Cable", "Internet", "Microwave", "Refrigerator", "Room", "Internet Connection"};
+      
+      Private = new JCheckBox("Private");
+      Private.setFocusable(false);
+      Internet = new JCheckBox("Internet");
+      Internet.setFocusable(false);
+      CableTV = new JCheckBox("Cable TV");
+      CableTV.setFocusable(false);
+      Microwave = new JCheckBox("Microwave");
+      Microwave.setFocusable(false);
+      Refrigerator = new JCheckBox("Refrigerator");
+      Refrigerator.setFocusable(false);
+      
+      result = new JTextArea("Shared room");
+      
+      add(Private);
+      add(Internet);
+      add(CableTV);
+      add(Microwave);
+      add(Refrigerator);
+      add(result);
+      
+      setVisible(true);
+   }
+   
+   public static void main(String[] args){
+      new dormitory();
+   }
 }
