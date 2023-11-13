@@ -25,7 +25,7 @@ class Dormitory extends JFrame {
         Refrigerator = new JCheckBox("Refrigerator");
         Refrigerator.setFocusable(false);
 
-        result = new JTextArea("Shared room");
+        result = new JTextArea("Room");
 
         // Add ItemListeners to checkboxes
         Private.addItemListener(new CheckBoxListener());
@@ -57,23 +57,23 @@ class Dormitory extends JFrame {
         StringBuilder resultText = new StringBuilder("Room");
 
         if (Private.isSelected()) {
-            resultText.append(" with Private");
+            resultText.append("\nPrivate");
         }
 
         if (Internet.isSelected()) {
-            resultText.append(" with Internet");
+            resultText.append("\nInternet");
         }
 
         if (CableTV.isSelected()) {
-            resultText.append(" with Cable TV");
+            resultText.append("\nCable TV");
         }
 
         if (Microwave.isSelected()) {
-            resultText.append(" with Microwave");
+            resultText.append("\nMicrowave");
         }
 
         if (Refrigerator.isSelected()) {
-            resultText.append(" with Refrigerator");
+            resultText.append("\nRefrigerator");
         }
 
         result.setText(resultText.toString());
