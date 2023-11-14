@@ -1,80 +1,57 @@
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ItemEvent;
-import java.awt.event.ItemListener;
 
-class Dormitory extends JFrame {
-    JCheckBox Private, Internet, CableTV, Microwave, Refrigerator;
-    JTextArea result;
+public class Dormitory extends JFrame {
+    private final JCheckBox[] checkboxes;
+    private final JTextArea result;
 
-    Dormitory() {
+    public Dormitory() {
         setTitle("Dormitory");
         setSize(500, 300);
         setLocationRelativeTo(null);
         setLayout(new FlowLayout());
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-        Private = new JCheckBox("Private");
-        Private.setFocusable(false);
-        Internet = new JCheckBox("Internet");
-        Internet.setFocusable(false);
-        CableTV = new JCheckBox("Cable TV");
-        CableTV.setFocusable(false);
-        Microwave = new JCheckBox("Microwave");
-        Microwave.setFocusable(false);
-        Refrigerator = new JCheckBox("Refrigerator");
-        Refrigerator.setFocusable(false);
+        checkboxes = new JCheckBox[] {
+            createCheckBox("Private"),
+            createCheckBox("Internet"),
+            createCheckBox("Cable TV"),
+            createCheckBox("Microwave"),
+            createCheckBox("Refrigerator")
+        };
 
-        result = new JTextArea("Shared Room");
+        result = new JTextArea();
         result.setEditable(false);
 
-        // Add ItemListeners to checkboxes
-        Private.addItemListener(new CheckBoxListener());
-        Internet.addItemListener(new CheckBoxListener());
-        CableTV.addItemListener(new CheckBoxListener());
-        Microwave.addItemListener(new CheckBoxListener());
-        Refrigerator.addItemListener(new CheckBoxListener());
-
-        add(Private);
-        add(Internet);
-        add(CableTV);
-        add(Microwave);
-        add(Refrigerator);
+        for (JCheckBox checkBox : checkboxes) {
+            checkBox.setFocusable(false);
+            checkBox.addItemListener(e -> updateResult());
+            add(checkBox);
+        }
+        updateResult();
         add(result);
-
         setVisible(true);
     }
 
-    // Inner class for ItemListener
-    class CheckBoxListener implements ItemListener {
-        @Override
-        public void itemStateChanged(ItemEvent e) {
-            updateResult();
-        }
+    private JCheckBox createCheckBox(String label) {
+        return new JCheckBox(label);
     }
 
-    // Method to update the result based on selected checkboxes
     private void updateResult() {
-        StringBuilder resultText = new StringBuilder("Shared Room");
+        StringBuilder resultText = new StringBuilder();
 
-        if (Private.isSelected()) {
-            resultText.append("\nPrivate");
-        }
+        for (int i = 0; i < checkboxes.length; i++) {
+            JCheckBox checkBox = checkboxes[i];
+            String checkboxLabel = checkBox.getText();
 
-        if (Internet.isSelected()) {
-            resultText.append("\nInternet");
-        }
-
-        if (CableTV.isSelected()) {
-            resultText.append("\nCable TV");
-        }
-
-        if (Microwave.isSelected()) {
-            resultText.append("\nMicrowave");
-        }
-
-        if (Refrigerator.isSelected()) {
-            resultText.append("\nRefrigerator");
+            if (checkboxLabel.equals("Private")) {
+                resultText.append(checkBox.isSelected() ? "Private Room\n" : "Shared Room\n");
+            } else {
+                resultText.append(checkBox.isSelected() ? "With " : "No ").append(checkboxLabel);
+                if (i < checkboxes.length - 1) {
+                    resultText.append("\n");
+                }
+            }
         }
 
         result.setText(resultText.toString());
