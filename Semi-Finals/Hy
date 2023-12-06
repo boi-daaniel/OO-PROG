@@ -1,0 +1,21 @@
+import java.util.Scanner;
+
+public class SquareRootException {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        try {
+            System.out.print("Enter a number: ");
+            double num = scanner.nextDouble();
+
+            if (num < 0) {
+                throw new ArithmeticException("Cannot take square root of a negative number.");
+            }
+
+            double squareRoot = Math.sqrt(num);
+            System.out.println("Square root of " + num + " is: " + squareRoot);
+        } catch (ArithmeticException e) {
+            System.out.println("Error: " + e.getMessage());
+        }
+    }
+}
