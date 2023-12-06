@@ -1,0 +1,12 @@
+public class EmployeeApp {
+    public static void main(String[] args) {
+        try {
+            Employee emp1 = new Employee("001", 95.50); // Below the allowed range
+            Employee emp2 = new Employee("002", 150.00); // Within the allowed range
+            Employee emp3 = new Employee("003", 410.00); // Above the allowed range
+            Employee emp4 = new Employee("004", 300.00); // Within the allowed range
+        } catch (EmployeeException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+}
